@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BestShopping</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="css/master.css">
+
+</head>
+
+<body onload="login()" class="animated fadeIn">
+    <!-- navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand navbar-login" href="index.html">
+            <!-- Falta icono de applicacion y darle algun color. -->
+            <!-- <i class="fas fa-arrow-left"></i> -->
+            <i class="fas fa-shopping-basket"></i>
+            BestShopping
+        </a>
+    </nav>
+    <br />
+
+    <div class="container">
+
+        <!-- Description jumbotron -->
+        <div class="row">
+            <div class="col-md-6 col">
+                <div class="jumbotron height-450">
+                    <h1 class="display-4 text-center" id="title">
+                        <i class="fas fa-shopping-basket"></i>&nbsp;BestShopping</h1>
+                    <br>
+                    <p class="lead">Search between thousand of diferent products, compare prices, filter list of products and get the best
+                        of the available offers in eBay and BestBuy.</p>
+                    <hr class="my-4">
+                    <p class="lead">BestShopping is the best option to compare the prices and search in a extensive catalogue of products.</p>
+                </div>
+            </div>
+
+            <!-- jumbotron Login -->
+            <div class="col-md-6 jg col">
+                <div class="jumbotron height-450">
+                    <div class="col-md-12">
+                        <h4 class="text-dark display-5 text-center">Login</h4>
+                    </div>
+                    <br />
+                    <p class="lead text-center">Best Shopping lets you use your existing social media account to log in, useful to keep everything in
+                        one account.</p>
+                    <hr class="my-4">
+                    <br />
+
+                    <!-- Botones -->
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-dark btnlog margin-bottom-20" onclick="loginGithub()">
+                            <i class="fab fa-github"></i>
+                            <label>Log in with GitHub</label>
+                        </button>&nbsp
+
+                        <button id="btnFb" class="btn btn-primary btnlog margin-bottom-20" onclick="loginFacebook()">
+                            <i class="fab fa-facebook-square"></i>
+                            <label>Log in with Facebook</label>
+                        </button>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-info btnlog" onclick="loginTwitter()">
+                            <i class="fab fa-twitter-square"></i>
+                            <label>Log in with Twitter</label>
+                        </button>&nbsp
+
+                        <button class="btn btn-danger btnlog" onclick="loginGoogle()">
+
+                            <i class="fab fa-google"></i>
+                            <label>Log in with Google</label>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="col-md-12 bg-white" id="footerContainer">
+        <div class="footer navbar-fixed-bottom">
+            <p style="text-align: center">
+                &copy;
+                <script>
+                    new Date().getFullYear() > 2010 && document.write("" + new Date().getFullYear());
+                </script>, BestShopping -
+                <a href="https://github.com/Sausf93">Saulo De la Santacruz</a> -
+                <a href="https://github.com/emimontesdeoca/BestShopping">
+                    <i class="fab fa-github"></i>
+                </a> -
+                <a href="https://emimontesdeoca.github.io/BestShopping/docs/index.html"> JSDocs</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Libraries Bootstrap + Jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Proyect JS -->
+    <script src="js/style-login.js"></script>
+
+    <!-- Library of Fontawesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+    <!-- Login  -->
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

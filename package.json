@@ -1,0 +1,26 @@
+{
+  "name": "bestshopping",
+  "version": "1.0.0",
+  "description": "El mejor comparador de ebay y bestbuy",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emimontesdeoca/BestShopping.git"
+  },
+  "author": "Mario Saulo Emiliano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emimontesdeoca/BestShopping/issues"
+  },
+  "homepage": "https://github.com/emimontesdeoca/BestShopping#readme",
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-plugin-react": "^7.7.0"
+  }
+}

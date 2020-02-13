@@ -1,0 +1,345 @@
+body::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */
+}
+
+/* optional: show position indicator in red
+body::-webkit-scrollbar-thumb {
+  background: #FF0000;
+} */
+
+.row-border-top {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.row-border-top-20 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.row-border-top-50 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+p {
+  text-align: left;
+  margin-left: 5px;
+}
+
+.input-search {
+  margin-left: -15px;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.margin-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.margin-left-30 {
+  margin-left: 30px;
+}
+
+.margin-left-20 {
+  margin-left: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.tienda {
+  width: 25%;
+}
+
+.precio {
+  margin-left: 55%;
+}
+
+.footer {
+  text-align: left;
+  padding-top: 5px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.col-busqueda {
+  margin-top: 0px;
+}
+
+.text-black {
+  color: black !important;
+}
+
+#cc {
+  width: 120px;
+}
+
+#img-ebay {
+  width: 100px;
+  height: 50px;
+  align-self: center;
+}
+
+#img-bestbuy {
+  width: 80px;
+  height: 50px;
+  align-self: center;
+}
+
+.display-5 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.tienda-container {
+  border-bottom: 1px solid #ced4da;
+  height: 80px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+}
+
+.border-right {
+  border-right: 1px solid #ced4da;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #ced4da;
+}
+
+.item-product {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ced4da;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+  #title {
+    font-size: 45px;
+  }
+  .producto-descripcion {
+    text-align: center;
+  }
+  .precio {
+    margin-left: 0;
+  }
+  #containerBestBuy,
+  #containerEbay {
+    height: 40vh !important;
+  }
+  #footerContainer {
+    /* height: auto;
+    position: fixed;
+    bottom: 0; */
+  }
+  .input-modal {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 770px) {
+  .producto-titulo {
+    text-align: center;
+  }
+  .item-product {
+    text-align: center;
+  }
+  .precio {
+    margin-left: 0;
+  }
+  #footerContainer {
+    /* height: auto;
+    position: fixed;
+    bottom: 0; */
+  }
+  #containerBestBuy,
+  #containerEbay {
+    height: 50vh !important;
+  }
+  .input-modal {
+    margin-bottom: 20px;
+  }
+}
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+
+@media (max-width: 990px) {
+  .input-search {
+    margin-left: 0px;
+  }
+  .col-busqueda {
+    margin-top: 10px;
+  }
+  .input-modal {
+    margin-bottom: 20px;
+  }
+}
+
+.option-box {
+  text-align: center;
+  cursor: pointer;
+  font-size: 90px;
+}
+
+.navbar-login {
+  align-self: center;
+}
+
+.navbar {
+  height: 60px;
+}
+
+#footerContainer {
+  height: auto;
+  /* position: fixed; */
+  bottom: 0;
+}
+
+#collapse {
+  margin: 0 auto;
+}
+
+#containerAll {
+  height: 85vh;
+}
+
+.padding-right-1 {
+  padding-right: 1px;
+}
+
+#containerBestBuy,
+#containerEbay {
+  height: 66vh;
+  overflow-y: scroll;
+  padding-right: 1px;
+  overflow-x: hidden;
+}
+
+.icon {
+  cursor: pointer;
+  background-color: rgb(233, 236, 239);
+  font-size: 0.3em;
+  padding: 5px;
+}
+
+icon>i {
+  margin-top: 0 !important;
+}
+
+.btn-login {
+  margin-left: 45%;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.center-flex {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.padding-left-20 {
+  padding-left: 30px;
+}
+
+h3 {
+  text-align: right;
+  font-size: 1rem;
+}
+
+.height-450 {
+  min-height: 470px;
+}
+
+.btnlog {
+  width: 190px;
+}
+
+.btnlog>label {
+  display: inline;
+  /* margin-bottom: .5rem; */
+}
+
+.googlebtn {
+  float: right;
+  margin-right: 60px;
+}
+
+#containerEbay::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+#containerEbay::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+#containerEbay::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #555;
+}
+
+#containerBestBuy::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+#containerBestBuy::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+#containerBestBuy::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #555;
+}
+
+#textNoSearch {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.imgModal {
+  display: flex;
+  justify-content: center;
+}

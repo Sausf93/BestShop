@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BestShopping</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/spinner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+</head>
+
+<body class="animated fadeIn">
+    <div id="loader" style="display:none; z-index:9999999" class="overlay">
+        <div class="spinner"></div>
+    </div>
+
+
+    <!-- navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <!-- Falta icono de applicacion y darle algun color. -->
+            <i class="fas fa-shopping-basket"></i>
+            BestShopping
+        </a>
+        <!-- En el href debe ir el enlace al formulario o al modal. -->
+        <!-- <a href="login.html">
+            <button class="btn btn-info">
+                <i class="fas fa-user"></i>
+            </button>
+        </a> -->
+
+        <!-- <button class="btn btn-info" onclick="logOut()">
+            <i class="fas fa-user"></i> &nbsp; Hola
+            <span id="loggeduser"></span>
+        </button> -->
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-user"></i>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenuLink">
+                <p class="dropdown-item item-welcome" style="margin-bottom: 0px;">Hello
+                    <b>
+                        <span id="loggeduser"></span>
+                    </b>!
+                </p>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" onclick="logOut()">
+                    <i class="fas fa-sign-out-alt"></i> Sign out</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container" id="containerAll">
+        <div class="row row-border-top">
+            <div id="search" class="col-busqueda col-lg-8 col-md-12 col-sm-12 col-12 input-search">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Product</span>
+                    </div>
+                    <input type="text" class="form-control" id="searchTextbox" placeholder="Enter product name">
+                </div>
+
+            </div>
+            <div class="col-busqueda col-lg-3 col-md-10 col-sm-9 col-8 first-filter">
+                <!-- Combobox del primer filtro. -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Order</span>
+                    </div>
+                    <select class="custom-select form-control" id="sortSearch">
+                        <option selected value="none">Choose...</option>
+                        <option value="BestMatch">Best match</option>
+                        <option value="PricePlusShippingLowest">Lower price</option>
+                        <option value="PricePlusShippingHighest">Higher price</option>
+                    </select>
+                </div>
+            </div>
+
+            <br>
+            <!-- Añadir evento de click al icono de buscar. -->
+            <div class="col-busqueda col-lg-1 col-md-2 col-sm-3 col-4 search ">
+                <button class="btn btn-success" on-touch="searchEbay()" onclick="filter()">
+                    <i class="fas fa-search"></i>
+                    Search
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú de busqueda y filtrado -->
+        <div class="row margin-top-30 ">
+            <div id="busqueda" class="col-md-3">
+                <h4 class="text-center">
+                    <span class="label center label-default text-white display-5 text-black">Advanced search</span>
+                </h4>
+                <hr class="my-4">
+
+                <!-- <br /> -->
+                <div class="row">
+                    <!-- DropDown de categorías -->
+                    <div class="col-md-12 ">
+                        <!-- Combobox del primer filtro. -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Categories</span>
+                            </div>
+                            <select class="custom-select form-control" id="category" onchange="setBrands()">
+                                <option selected value="none">Category</option>
+                                <option value="TV">TV</option>
+                                <option value="Smartphone">SmartPhones</option>
+                                <option value="Health">Health, Fitness and Beauty</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <!-- DropDown de Marca -->
+                    <div class="col-md-12 ">
+                        <!-- Combobox del primer filtro. -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Brand</span>
+                            </div>
+                            <select class="custom-select form-control" id="brand">
+                                <option selected value="none">Brands</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div id="desde" class="col-lg-12 col-md-6 col-sm-6 col-xs-6 margin-bottom-20">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="validationTooltipUsernamePrepend">€</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="Minimum price " id="minPrice" min="0">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6 margin-bottom-20">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="validationTooltipUsernamePrepend">€</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="Maximum price" id="maxPrice" min="0">
+                        </div>
+                    </div>
+                </div>
+                <!-- <br> -->
+                <div class="row">
+                    <!-- DropDown de Marca -->
+                    <div class="col-md-12 ">
+                        <!-- Combobox del primer filtro. -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Items per page</span>
+                            </div>
+                            <select class="custom-select form-control" id="itemsPerPage">
+                                <option selected disabled value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- <br> -->
+                <hr class="my-4">
+
+                <div class="col-md-12 center">
+                    <div class="btn-group">
+
+                        <button type="button" class="btn btn-primary" value="Filtrar" onclick="filter()">
+                            <i class="fas fa-search"></i>
+                            Search
+                        </button>
+                        <button type="reset" class="btn btn-danger" value="Borrar" onclick="clearFilter()">
+                            <i class="fas fa-times"></i> Clear
+                        </button>
+
+                    </div>
+                </div>
+                <br>
+            </div>
+
+            <!-- Contenedores con los productos filtrados -->
+            <div class="col-md-9 results margin-top-10">
+                <div class="container" id="textNoSearch">
+                    <h1 class="display-5">Start by entering something in the search field.</h1>
+                    <hr class="my-4">
+
+                    <p class="lead" style="text-align: center; font-size: 1em;">If you want to be more precise when looking for a product, use the advanced search, it's quite cool,
+                        and looks like it works.</p>
+                </div>
+                <div class="container" id="textSearch" style="display:none">
+                    <div class="row ">
+                        <div class="col-md-6 col-sm-6 col-6 border-right">
+                            <div class="row">
+                                <div class="col-md-12 text-center tienda-container border-right">
+                                    <img id="img-ebay" src="resources/img/ebay.png" alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 margin-10 padding-right-1">
+                                    <div class="container" id="containerEbay">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6 ">
+                            <div class="row">
+                                <div class="col-md-12 text-center tienda-container">
+                                    <img id="img-bestbuy" src="resources/img/bestbuy.png" alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 margin-10 padding-right-1">
+                                    <div class="container" id="containerBestBuy">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+
+
+        </div>
+
+    </div>
+
+    <!-- <div class="col-md-12 bg-white" id="footerContainer">
+        <div class="footer navbar-fixed-bottom">
+            <p style="text-align: center">
+                &copy;
+                <script>
+                    new Date().getFullYear() > 2010 && document.write("" + new Date().getFullYear());
+                </script>, BestShopping -
+                <a href="https://github.com/emimontesdeoca">Emiliano Montesdeoca</a> -
+                <a href="https://github.com/Sausf93">Saulo De la Santacruz</a> -
+                <a href="https://github.com/Munher">Mario Melián</a> -
+                <a href="https://github.com/emimontesdeoca/BestShopping">
+                    <i class="fab fa-github"></i>
+                </a> -
+                <a href="https://emimontesdeoca.github.io/BestShopping/docs/index.html"> JSDocs</a>
+            </p>
+        </div>
+    </div> -->
+
+    <!-- Modal -->
+    <div class="modal fade " id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product information from
+                        <span id="modalFrom"></span>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <div class="col-md-4 imgModal">
+                                <img id="modalImage">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1 class="lead text-center" style="font-size: 1.8rem;" id="modalTitle"></h1>
+                                    </div>
+                                    <hr class="my-4">
+
+                                    <div class="col-md-6">
+                                        <p class="lead">Source:
+                                            <b>
+                                                <span id="modalFrom2"></span>
+                                            </b>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="lead">Price:
+                                            <b>
+                                                <span id="modalPrice"></span> €</b>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="my-4">
+
+                        <p class="lead">In order to make a purchase, please fill the following information.
+                            <b>BestShopping</b> won't store any of the information that you provide us.</p>
+                        <hr class="my-4">
+                        <p class="lead">Personal information</p>
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-6 input-modal">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Name</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modalName" placeholder="Enter name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group ">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Surname</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modalSurname" placeholder="Enter surname" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group input-modal">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Email</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modalEmail" placeholder="Enter email" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group ">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Phone</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modalPhone" placeholder="Enter phone" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="input-group input-modal">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Address</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modalAddress" placeholder="Enter address" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Country</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modalCountry" placeholder="Enter country" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <p class="lead">Billing information</p>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="input-group input-modal">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Credit number</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modalCreditNumber" placeholder="Enter credit card number" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Date</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modalDate" placeholder="Enter date" required>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="input-group input-modal">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="validationTooltipUsernamePrepend">Card type</span>
+                                        </div>
+                                        <select class="custom-select form-control" id="modalCreditCard" required>
+                                            <option selected value="none">Choose...</option>
+                                            <option value="0">Visa</option>
+                                            <option value="1">Maestro</option>
+                                            <option value="3">American Express</option>
+                                            <option value="4">Discover</option>
+                                            <option value="5">MasterCard</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="input-group ">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">CVV</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modalCVV" placeholder="Enter CVV" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <button class="btn btn-success btn-lg" id="modalPay" style="margin-left:0px !important;">Pay
+                                    <i class="fas fa-euro-sign"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Librerias de Bootstrap + Jquery -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!-- JS del proyecto -->
+        <script src="js/product.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/style.js"></script>
+        <!-- Libreria de Fontawesome -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+
+</html>
