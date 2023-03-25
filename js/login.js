@@ -93,15 +93,15 @@ function loginFacebook() {
  * Function that logs into Google
  */
 function loginGoogle() {
-    k
     var auth = firebase.auth();
 
     var provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider).then(function (result) {
         // User signed in!
         // console.log(result);
+        console.log(result);
 
-        var username = result.additionalUserInfo.username;
+        var username = result.user.displayName;
         localStorage.setItem("userLogged", username);
         window.location.href = "search.html"
     }).catch(function (error) {
