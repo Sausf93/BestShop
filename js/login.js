@@ -1,18 +1,18 @@
 /// Remove current logged user in localstorage
 localStorage.removeItem("userLogged");
 
-/// Firebase config
-var config = {
-    apiKey: "AIzaSyA0mPQ3_Qu089iBajy7SiZQZbGgfwfpGXc",
-    authDomain: "bestshopping-ba53a.firebaseapp.com",
-    databaseURL: "https://bestshopping-ba53a.firebaseio.com",
-    projectId: "bestshopping-ba53a",
-    storageBucket: "bestshopping-ba53a.appspot.com",
-    messagingSenderId: "764486840870"
-};
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBYQ-aQ3MLCsKfGwXULnnOYMK90rQxk-IM",
+    authDomain: "bestshop-c1579.firebaseapp.com",
+    projectId: "bestshop-c1579",
+    storageBucket: "bestshop-c1579.appspot.com",
+    messagingSenderId: "1046183832127",
+    appId: "1:1046183832127:web:f904f54ac93c4080cfa68a"
+  };
 
 /// Initialize firebase
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 /// Logout from firebase 
 firebase.auth().signOut().then(function () {
